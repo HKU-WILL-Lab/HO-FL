@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ho-fl"
+version = "0.2.0"
+description = "HO-FL experiments with seed-generated client partitions"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+  "torch==2.6.0",
+  "transformers==4.56.2",
+  "peft==0.17.1",
+  "datasets==3.6.0",
+  "accelerate==1.10.1",
+  "numpy==2.2.6",
+  "pandas==2.3.2",
+  "safetensors==0.6.2",
+  "sentencepiece==0.2.1",
+  "scipy==1.15.3",
+]
+
+[project.scripts]
+ho-fl-train = "ho_fl.train:main"
+ho-fl-profile = "ho_fl.profile:main"
+ho-fl-memory = "ho_fl.memory:main"
+ho-fl-replay = "ho_fl.replay:main"
+
+[tool.setuptools.packages.find]
+include = ["ho_fl*"]
